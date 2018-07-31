@@ -1,0 +1,5 @@
+{
+    "selector": "source.hexa",
+    "working_dir": "${project_path:${folder}}",
+    "shell_cmd": "hexa ${file}"
+}
