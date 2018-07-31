@@ -1,0 +1,216 @@
+%YAML 1.2
+---
+# See http://www.sublimetext.com/docs/3/syntax.html
+file_extensions:
+  - hexa
+scope: source.hexa
+contexts:
+  main:
+    # Strings begin and end with quotes, and use backslashes as an escape
+    # character
+    - match: '"'
+      scope: punctuation.definition.string.begin.hexa
+      push: double_quoted_string
+
+    - match: "'"
+      scope: punctuation.definition.string.begin.hexa
+      push: single_quoted_string
+
+    - match: "`"
+      scope: punctuation.definition.string.begin.hexa
+      push: raw_quoted_string
+
+    # Documentational comments begin with a '///' and finish at the end of the line
+    - match: '///'
+      scope: punctuation.definition.comment.hexa
+      push: line_comment
+
+    # Comments begin with a '//' and finish at the end of the line
+    - match: '//'
+      scope: punctuation.definition.comment.hexa
+      push: line_comment
+
+    - include: nestable_comment
+
+    - match: '#[a-z]\w+\b'
+      scope: storage.attribute.hexa
+
+
+    # Keywords are if, else for and while.
+    # Note that blackslashes don't need to be escaped within single quoted
+    # strings in YAML. When using single quoted strings, only single quotes
+    # need to be escaped: this is done by using two single quotes next to each
+    # other.
+    - match: '\b(if|else|for|while|do|let|var|function|in|implements|continue|break|return|try|catch|declare|class|interface|extends|static|new|throw|module|export|switch|case|private|enum|as|is)\b'
+      scope: keyword.control.hexa
+
+    - match: '\b(null|true|false|this)\b'
+      scope: constant.other.hexa
+
+    # Attributes
+    - match: '@[a-zA-Z]\w+\b'
+      scope: storage.attribute.hexa
+
+    # Readability
+    - match: '=>'
+      scope: storage.attribute.hexa
+
+    # Class names
+    - match: '\b([A-Z][A-z0-9_]*)\b'
+      scope: constant.other.hexa
+
+    # Numbers
+    - match: '\b(-)?[0-9.]+\b'
+      scope: constant.numeric.hexa
+    - match: '\b0x[0-9A-F]+\b'
+      scope: constant.numeric.hexa
+
+    # ERROR
+    - match: \{
+      push: braces
+    - match: \}
+      scope: invalid.illegal.stray-bracket-end
+
+    # ERROR
+    - match: \[
+      push: brackets
+    - match: \]
+      scope: invalid.illegal.stray-bracket-end
+
+    # ERROR
+    - match: \(
+      push: parenthesis
+    - match: \)
+      scope: invalid.illegal.stray-bracket-end
+
+    # ERROR
+    # // Nobody likes semicolons :)
+    - match: ";"
+      scope: invalid.illegal.stray-semi-colon
+
+  nestable_comment:
+    - meta_scope: comment.block
+    - match: /\*
+      push: nestable_comment
+    - match: \*/
+      pop: true
+      push: comment_markdown
+
+  braces:
+    - match: \}
+      pop: true
+    - include: main
+
+  brackets:
+    - match: \]
+      pop: true
+    - include: main
+
+  parenthesis:
+    - match: \)
+      pop: true
+    - include: main
+
+  name_after_function:
+    - match: \b([A-Za-z_][A-Za-z_0-9]*)\b
+      scope: entity.name.type
+      pop: true
+
+  double_quoted_string:
+    - meta_scope: string.quoted.double.hexa
+    - match: '\\.'
+      scope: constant.character.escape.hexa
+    - match: '"'
+      scope: punctuation.definition.string.end.hexa
+      pop: true
+
+  single_quoted_string:
+    - meta_scope: string.quoted.single.hexa
+    - include: interpolated_hexa
+    - match: '\\.'
+      scope: constant.character.escape.hexa
+    - match: "'"
+      scope: punctuation.definition.string.end.hexa
+      pop: true
+
+  raw_quoted_string:
+    - meta_scope: string.quoted.single.hexa
+    - match: "`"
+      scope: punctuation.definition.string.end.hexa
+      pop: true
+
+  line_comment:
+    - meta_scope: comment.line.hexa
+    - include: comment_markdown
+    - match: $
+      pop: true
+
+  comment_inline_code:
+    - meta_scope: string.quoted.single.hexa
+    - match: "`"
+      scope: punctuation.definition.string.end.hexa
+      pop: true
+
+  comment_multiline_code:
+    - meta_scope: string.quoted.single.hexa
+    - match: "```"
+      scope: punctuation.definition.string.end.hexa
+      pop: true
+
+  comment_markdown_eol:
+    - match: $
+      pop: true
+
+  comment_markdown:
+    # Close on */
+    - match: \*/
+      pop: true
+
+    - match: /```$/
+      scope: punctuation.definition.string.begin.hexa
+      push: comment_multiline_code
+
+    # Links
+    - match: "http(s)?:\/\/[a-zA-Z./[0-9]-?&✓%=+#@]+"
+      scope: constant.language.other
+
+    - match: "`"
+      push:
+      - include: comment_markdown_eol
+      - meta_scope: string.quoted.single.hexa
+      - match: "`"
+        pop: true
+
+
+    - match: \*\*
+      push:
+      - meta_scope: markup.bold.hexa
+      - match: $
+        pop: true
+      - match: \*\*
+        pop: true
+
+    - match: \*
+      push:
+      - match: $
+        pop: true
+      - meta_scope: markup.italic.hexa
+      - match: \*
+        pop: true
+
+  interpolated_parens:
+    - match: '\('
+      push: interpolated_parens
+    - match: '\)'
+      pop: true
+
+  interpolated_hexa:
+    - match: '\\\('
+      scope: punctuation.section.embedded.hexa
+      push:
+        - meta_scope: comment.line.hexa
+        - match: '\('
+          push: interpolated_parens
+        - match: '\)'
+          pop: true
+
