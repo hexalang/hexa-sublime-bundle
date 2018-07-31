@@ -88,6 +88,12 @@ contexts:
     - match: ";"
       scope: invalid.illegal.stray-semi-colon
 
+    # ERROR
+    - match: \$
+      scope: invalid.illegal.stray-semi-colon
+    # ERROR
+    - match: \b___
+      scope: invalid.illegal.stray-semi-colon
   nestable_comment:
     - meta_scope: comment.block
     - match: /\*
@@ -180,7 +186,6 @@ contexts:
       - meta_scope: string.quoted.single.hexa
       - match: "`"
         pop: true
-
 
     - match: \*\*
       push:
