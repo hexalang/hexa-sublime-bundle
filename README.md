@@ -1,5 +1,9 @@
 # Sublime Text 3 support for [Hexa](https://github.com/hexalang)
 
+Dependencies
+
+- [SublimeLinter](http://www.sublimelinter.com/en/stable/installation.html)
+
 Supported features
 
 - Syntax highlight
