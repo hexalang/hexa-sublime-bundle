@@ -10,3 +10,4 @@ Supported features
 - Syntax errors (stand-alone)
 - Build systems
 
+[List of features to implement](TODO.md)
