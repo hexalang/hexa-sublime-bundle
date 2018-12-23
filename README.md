@@ -1,5 +1,7 @@
 # Sublime Text 3 support for [Hexa](https://github.com/hexalang)
 
+![Screenshot](screenshot.png?raw=true)
+
 Dependencies
 
 - [SublimeLinter](http://www.sublimelinter.com/en/stable/installation.html)
