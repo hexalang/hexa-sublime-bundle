@@ -2,15 +2,17 @@
 
 ![Screenshot](screenshot.png?raw=true)
 
-Dependencies
+#### Dependencies
 
 - [SublimeLinter](http://www.sublimelinter.com/en/stable/installation.html)
 
-Supported features
+#### Supported features
 
 - Syntax highlight
 - Syntax errors (stand-alone & with SublimeLinter)
 - Build systems
 - Code navigation (basic)
+
+#### Contribute
 
 [List of features to implement](TODO.md)
