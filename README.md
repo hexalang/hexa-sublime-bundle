@@ -9,7 +9,8 @@ Dependencies
 Supported features
 
 - Syntax highlight
-- Syntax errors (stand-alone)
+- Syntax errors (stand-alone & with SublimeLinter)
 - Build systems
+- Code navigation (basic)
 
 [List of features to implement](TODO.md)
