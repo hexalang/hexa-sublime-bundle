@@ -35,8 +35,12 @@ contexts:
     - match: '#[a-z]\w+\b'
       scope: storage.attribute.hexa
 
+    # Highlight variable declarations
+    - match: \b(var|let|function)\b
+      scope: keyword.control.hexa
+      push: [name_after_function]
 
-    # Keywords are if, else for and while.
+    # Keywords are if, else, for, while, etc.
     # Note that blackslashes don't need to be escaped within single quoted
     # strings in YAML. When using single quoted strings, only single quotes
     # need to be escaped: this is done by using two single quotes next to each
@@ -94,6 +98,9 @@ contexts:
     # ERROR
     - match: \b___
       scope: invalid.illegal.stray-semi-colon
+
+#### INCLUDES ####
+
   nestable_comment:
     - meta_scope: comment.block
     - match: /\*
