@@ -187,6 +187,10 @@ contexts:
     - match: "http(s)?:\/\/[a-zA-Z./[0-9]-?&✓%=+#@]+"
       scope: constant.language.other
 
+    # TODOs
+    - match: \bTODO\b
+      scope: invalid.illegal.stray-semi-colon
+
     - match: "`"
       push:
       - include: comment_markdown_eol
