@@ -14,6 +14,7 @@
 - Syntax errors (stand-alone & with SublimeLinter)
 - Build systems
 - Code navigation (basic)
+- Snippets
 
 #### Contribute
 
