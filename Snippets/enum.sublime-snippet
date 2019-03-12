@@ -1,0 +1,8 @@
+<snippet>
+    <content><![CDATA[enum ${1:Name} {
+	$0
+}]]></content>
+    <tabTrigger>enu</tabTrigger>
+    <scope>source.hexa</scope>
+    <description>enum Name {}</description>
+</snippet>

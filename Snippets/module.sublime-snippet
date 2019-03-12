@@ -1,0 +1,8 @@
+<snippet>
+    <content><![CDATA[module ${1:namespace} {
+	$0
+}]]></content>
+    <tabTrigger>mod</tabTrigger>
+    <scope>source.hexa</scope>
+    <description>module name.space {}</description>
+</snippet>

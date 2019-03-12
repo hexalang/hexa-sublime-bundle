@@ -1,0 +1,6 @@
+<snippet>
+    <content><![CDATA[static function ]]></content>
+    <tabTrigger>stf</tabTrigger>
+    <scope>source.hexa</scope>
+    <description>Shortcut for "static function"</description>
+</snippet>

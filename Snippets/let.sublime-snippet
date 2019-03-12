@@ -1,0 +1,6 @@
+<snippet>
+    <content><![CDATA[let ]]></content>
+    <tabTrigger>l</tabTrigger>
+    <scope>source.hexa</scope>
+    <description>Shortcut for "let"</description>
+</snippet>

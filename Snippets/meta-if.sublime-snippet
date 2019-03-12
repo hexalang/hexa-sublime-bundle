@@ -1,0 +1,6 @@
+<snippet>
+    <content><![CDATA[#if ]]></content>
+    <tabTrigger>mif</tabTrigger>
+    <scope>source.hexa</scope>
+    <description>#if</description>
+</snippet>

@@ -1,0 +1,6 @@
+<snippet>
+    <content><![CDATA[declare ]]></content>
+    <tabTrigger>de</tabTrigger>
+    <scope>source.hexa</scope>
+    <description>Shortcut for "declare"</description>
+</snippet>

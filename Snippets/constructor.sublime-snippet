@@ -1,0 +1,8 @@
+<snippet>
+    <content><![CDATA[new (${1:arguments}) {
+	$0
+}]]></content>
+    <tabTrigger>new</tabTrigger>
+    <scope>source.hexa</scope>
+    <description>Class constructor: new (arguments) {}</description>
+</snippet>

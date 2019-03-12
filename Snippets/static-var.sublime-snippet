@@ -1,0 +1,6 @@
+<snippet>
+    <content><![CDATA[static var ]]></content>
+    <tabTrigger>stv</tabTrigger>
+    <scope>source.hexa</scope>
+    <description>Shortcut for "static var"</description>
+</snippet>

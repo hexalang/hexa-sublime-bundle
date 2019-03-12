@@ -1,0 +1,6 @@
+<snippet>
+    <content><![CDATA[#else]]></content>
+    <tabTrigger>melse</tabTrigger>
+    <scope>source.hexa</scope>
+    <description>#else</description>
+</snippet>
