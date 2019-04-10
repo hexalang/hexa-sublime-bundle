@@ -22,7 +22,7 @@ contexts:
 
     # Documentational comments begin with a '///' and finish at the end of the line
     - match: '///'
-      scope: punctuation.definition.comment.hexa
+      scope: constant.other.hexa
       push: line_comment
 
     # Comments begin with a '//' and finish at the end of the line
