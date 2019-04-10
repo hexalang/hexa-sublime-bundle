@@ -18,4 +18,4 @@
 
 #### Contribute
 
-[List of features to implement](TODO.md)
+- [ ] Drop SublimeLinter, implement something like language server

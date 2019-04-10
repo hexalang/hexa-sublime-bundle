@@ -30,6 +30,7 @@ contexts:
       scope: punctuation.definition.comment.hexa
       push: line_comment
 
+    # Comments begin with a '/*' and finish at '*/'
     - include: nestable_comment
 
     - match: '#[a-z]\w+\b'
@@ -131,6 +132,7 @@ contexts:
 
   double_quoted_string:
     - meta_scope: string.quoted.double.hexa
+    - include: interpolated_hexa
     - match: '\\.'
       scope: constant.character.escape.hexa
     - match: '"'
