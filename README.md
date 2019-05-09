@@ -4,6 +4,10 @@
 
 ![Screenshot](screenshot.png?raw=true)
 
+### Install
+
+https://packagecontrol.io/packages/Hexa
+
 #### Dependencies
 
 - [SublimeLinter](http://www.sublimelinter.com/en/stable/installation.html)
