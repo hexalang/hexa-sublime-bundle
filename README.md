@@ -15,7 +15,7 @@ https://packagecontrol.io/packages/Hexa
 #### Supported features
 
 - Syntax highlight
-- Syntax errors (stand-alone & with SublimeLinter)
+- Syntax errors (stand-alone & with compiler)
 - Build systems
 - Code navigation (basic)
 - Snippets
