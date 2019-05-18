@@ -6,7 +6,7 @@
 
 ### Install
 
-https://packagecontrol.io/packages/Hexa
+<https://packagecontrol.io/packages/Hexa>
 
 #### Dependencies
 
@@ -22,4 +22,4 @@ https://packagecontrol.io/packages/Hexa
 
 #### Contribute
 
-- [ ] Drop SublimeLinter, implement something like language server
+- Drop SublimeLinter, implement something like language server
