@@ -150,6 +150,8 @@ contexts:
 
   raw_quoted_string:
     - meta_scope: string.quoted.single.hexa
+    - match: "``"
+      scope: constant.character.escape.hexa
     - match: "`"
       scope: punctuation.definition.string.end.hexa
       pop: true
