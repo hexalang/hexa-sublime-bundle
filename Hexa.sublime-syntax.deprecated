@@ -33,32 +33,69 @@ contexts:
     # Comments begin with a '/*' and finish at '*/'
     - include: nestable_comment
 
+    # Regular expression
+    - match: \/([0-9\w\+\-\*\'\"!№;\.,\?~`@\|_&\(\)\-#$!=%:^\[\]\t]|\\\/|\\ |\\)+\/[igy]*
+      scope: keyword.control.hexa
+
+   #- match: \/[a-zA-Z0-9\w(\\/)\+\-\*\'\"!№;\.,\?~`@(\\ )\\\|_&\(\)\-#$!=%:^\[\]\t]+\/[igy]*
+    #  scope: constant.other.hexa
+
+    # Sharp
     - match: '#[a-z]\w+\b'
       scope: storage.attribute.hexa
 
     # Highlight variable declarations
-    - match: \b(var|let|function)\b
+    #- match: \b(var|let|function)\b
+    #  scope: keyword.control.hexa
+    #  push: [name_after_function]
+
+#    - match: '\b(import)\b'
+#      scope: keyword.control.hexa
+#      #push: from_string_error
+#      push: import
+
+    - match: '\b(from)\b'
       scope: keyword.control.hexa
-      push: [name_after_function]
+      #push: from_string_error
+      push: from
+
 
     # Keywords are if, else, for, while, etc.
     # Note that blackslashes don't need to be escaped within single quoted
     # strings in YAML. When using single quoted strings, only single quotes
     # need to be escaped: this is done by using two single quotes next to each
     # other.
-    - match: '\b(if|else|for|while|do|let|var|function|in|implements|continue|break|return|try|catch|declare|class|interface|extends|static|new|throw|module|export|switch|case|private|enum|as|is)\b'
+    - match: '\b(import|from|default|if|else|for|while|do|let|var|function|fun|in|implements|continue|break|return|try|catch|declare|class|interface|extends|static|new|throw|module|export|switch|case|private|enum|as|is|get|set|and|or|not)\b'
+      scope: keyword.control.hexa
+
+    - match: '~'
+      scope: keyword.control.hexa
+      push: from
+
+
+    # TODO take all syntax from official JS & D (dlang looks same way)
+    # TODO testing syntax file in repo
+    # Operators
+    - match: '[\+\-\=\|\&\<\>\*\/\!\?\:]'
+      scope: keyword.control.hexa
+    - match: '\.\.\.'
       scope: keyword.control.hexa
 
     - match: '\b(null|true|false|this)\b'
       scope: constant.other.hexa
 
     # Attributes
-    - match: '@[a-zA-Z]\w+\b'
+    - match: '@[a-zA-Z]\w*\b'
       scope: storage.attribute.hexa
 
     # Readability
     - match: '=>'
       scope: storage.attribute.hexa
+
+    - match: '\.[a-z]\w*\b'
+    #  scope: punctuation.accessor.dot.hexa
+      scope: constant.other.placeholder.hexa
+    #  scope: entity.name.function.hexa
 
     # Class names
     - match: '\b([A-Z][A-z0-9_]*)\b'
@@ -155,6 +192,56 @@ contexts:
     - match: "`"
       scope: punctuation.definition.string.end.hexa
       pop: true
+
+  from:
+    - meta_scope: markup.italic.hexa
+    - match: \'[\.a-zA-Z\/\-_0-9\'\"]*
+      scope: invalid.illegal.stray-semi-colon
+      pop: true
+    - match: \"[\.a-zA-Z\/\-_0-9\'\"]*
+      scope: invalid.illegal.stray-semi-colon
+      pop: true
+    - match: '[\.a-zA-Z\/\-_0-9]+'
+      pop: true
+
+#  import:
+#    - meta_scope: markup.italic.hexa
+##    - match: '[0-9]+ '
+##      scope: constant.numeric.hexa
+##    - match: 'in'
+###      scope: constant.numeric.hexa
+##      push: inn
+#    #- include: path
+#    #- include: inn
+#    #- match: .
+#    - match: 123
+#    - include: path
+#      pop: true
+#
+#  path:
+#    - match: '[a]+'
+#      scope: constant.language.other
+#      pop: true
+#
+#  inn:
+#    #- match: '\b(in)\b'
+#    - match: '[a-z]+'
+#      scope: constant.numeric.hexa
+#    - meta_scope: markup.bold.hexa
+#      scope: constant.numeric.hexa
+#      pop: true
+
+  from_string_error:
+    - meta_scope: markup.italic.hexa
+    - match: '[\.a-zA-Z\/\-_0-9]+'
+      pop: true
+
+  #from_string_error:
+  #  - meta_scope: markup.italic.hexa
+  #  - match: '[\.a-zA-Z\/\-_0-9]+'
+  #    pop: true
+  #  - match: \[\"\.a-zA-Z\/\-_0-9]+
+  #    scope: invalid.illegal.stray-semi-colon
 
   line_comment:
     - meta_scope: comment.line.hexa
