@@ -10,7 +10,7 @@
 
 ### Use with [Sublime Merge](https://www.sublimemerge.com/)
 
-Open `Preferences -> Browse Packages...` and copy [syntax file](https://github.com/hexalang/hexa-sublime-bundle/blob/master/Hexa.sublime-syntax) into `User` subfolder of `Packages`, restart Sublime Merge
+Open `Preferences -> Browse Packages...` and copy [syntax file](https://github.com/hexalang/hexa-sublime-bundle/blob/master/Hexa.tmLanguage) into `User` subfolder of `Packages`, restart Sublime Merge
 
 #### Dependencies
 
