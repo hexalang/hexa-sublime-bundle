@@ -8,6 +8,14 @@
 
 <https://packagecontrol.io/packages/Hexa>
 
+#### Language Server
+
+You need to install `LSP` package if it's not present in your Sublime Text installation.
+
+Install [the Hexa itself](https://hexalang.github.io/).
+
+Restart Sublime.
+
 ### Use with [Sublime Merge](https://www.sublimemerge.com/)
 
 Open `Preferences -> Browse Packages...` and copy [syntax file](https://github.com/hexalang/hexa-sublime-bundle/blob/master/Hexa.tmLanguage) into `User` subfolder of `Packages`, restart Sublime Merge
@@ -19,11 +27,7 @@ Open `Preferences -> Browse Packages...` and copy [syntax file](https://github.c
 #### Supported features
 
 - Syntax highlight
-- Syntax errors (stand-alone & with compiler)
+- Syntax errors (via compiler's LSP)
 - Build systems
-- Code navigation (basic)
+- Code navigation
 - Snippets
-
-#### Contribute
-
-- Drop SublimeLinter, implement something like language server
