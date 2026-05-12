@@ -1,0 +1,9 @@
+{
+  "clients": {
+      "lsp-hexa": {
+          "enabled": true,
+          "command": ["hexa", "lsp"],
+          "selector": "source.hexa"
+      }
+  }
+}
