@@ -20,10 +20,6 @@ Restart Sublime.
 
 Open `Preferences -> Browse Packages...` and copy [syntax file](https://github.com/hexalang/hexa-sublime-bundle/blob/master/Hexa.tmLanguage) into `User` subfolder of `Packages`, restart Sublime Merge
 
-#### Dependencies
-
-- [SublimeLinter](http://www.sublimelinter.com/en/stable/installation.html)
-
 #### Supported features
 
 - Syntax highlight
